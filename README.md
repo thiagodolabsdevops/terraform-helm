@@ -51,6 +51,26 @@ This project sets up a Jenkins server on a Kubernetes cluster using Terraform an
 
     This will deploy Jenkins on your Kubernetes cluster with the specified configurations.
 
+## Exposing Jenkins
+
+After deploying Jenkins, you need to expose it to access the web interface. You can do this using Kubernetes port forwarding:
+
+```bash
+kubectl port-forward jenkins-0 8080:8080
+```
+
+This command forwards the Jenkins service running on the Kubernetes pod jenkins-0 to your local machine on port 8080. You can then access Jenkins by navigating to [http://localhost:8080] in your web browser.
+
+## Retrieving Jenkins admin password
+
+To log into Jenkins, you need the admin password. This password is stored in a Kubernetes secret and can be retrieved with the following command:
+
+```bash
+kubectl get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode
+```
+
+This command fetches the Jenkins admin password from the Kubernetes secret named jenkins and decodes it from base64. Use this password to log in to Jenkins at [http://localhost:8080].
+
 ## Configuration Details
 
 ### main.tf

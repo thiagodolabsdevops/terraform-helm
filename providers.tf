@@ -8,10 +8,6 @@ terraform {
       source = "hashicorp/helm"
       version = "2.13.2"
     }
-    jenkins = {
-      source  = "taiidani/jenkins"
-      version = "0.10.2"
-    }
   }
 }
 
@@ -23,10 +19,4 @@ provider "helm" {
   kubernetes {
     config_path = "~/.kube/config"
   }
-}
-
-provider "jenkins" {
-  server_url = "http://localhost:8080"
-  username   = "admin"
-  password   = var.jenkins_password
 }

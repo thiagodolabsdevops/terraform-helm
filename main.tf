@@ -6,9 +6,4 @@ resource "helm_release" "jenkins" {
   values = [
     file("jenkins-values.yaml")
   ]
-
-  set {
-    name  = "controller.admin.password"
-    value = var.jenkins_password
-  }
 }

@@ -8,8 +8,8 @@ controller:
     - credentials-binding
     - git
     - configuration-as-code
-    # - newrelic-deployment-notifier
-    # - snyk-security-scanner
+    - newrelic-deployment-notifier
+    - snyk-security-scanner
   resources:
     requests:
       cpu: "500m"

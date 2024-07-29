@@ -1,5 +1,5 @@
 module "jenkins_helm_release" {
-  source         = "./modules/jenkins"
+  source         = "./modules"
 
   release_name   = "jenkins"
   repository_url = "https://charts.jenkins.io"
@@ -9,6 +9,6 @@ module "jenkins_helm_release" {
 }
 
 # moved {
-#   from = helm_release.jenkins
-#   to   = module.jenkins_helm_release.helm_release.jenkins
+#   from = module.jenkins_helm_release.helm_release.jenkins
+#   to   = module.jenkins_helm_release.helm_release.this
 # }

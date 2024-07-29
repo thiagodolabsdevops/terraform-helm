@@ -1,4 +1,4 @@
-resource "helm_release" "jenkins" {
+resource "helm_release" "this" {
   name       = var.release_name
   repository = var.repository_url
   chart      = var.chart_name

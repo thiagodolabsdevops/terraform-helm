@@ -1,4 +1,4 @@
 output "release_name" {
   description = "The name of the Helm release."
-  value       = helm_release.jenkins.name
+  value       = helm_release.this.name
 }
